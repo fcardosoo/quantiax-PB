@@ -1,0 +1,12 @@
+name: 'quantiax_dw'
+version: '1.0.0'
+config-version: 2
+
+profile: 'default'
+
+models:
+  quantiax_dw:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
