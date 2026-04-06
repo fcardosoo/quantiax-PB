@@ -1,0 +1,8 @@
+-- models/marts/dimensions/dim_investidor.sql
+select
+    investor_id as id_investidor,
+    profissao as nome,
+    perfil as tipo,
+    preferencia_risco as perfil_risco,
+    investor_id as id_localizacao
+from {{ ref('stg_investors') }}
