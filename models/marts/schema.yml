@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_investidor
+    description: "Dimensão de investidores"
+    columns:
+      - name: id_investidor
+        description: "Chave primária da dimensão investidor"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_tempo
+    description: "Dimensão de tempo"
+    columns:
+      - name: id_tempo
+        description: "Chave primária da dimensão tempo"
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_desempenho_carteira
+    description: "Tabela fato de desempenho das carteiras"
+    columns:
+      - name: id_investidor
+        description: "Chave estrangeira para dimensão investidor"
+        tests:
+          - relationships:
+              to: ref('dim_investidor')
+              field: id_investidor
+      - name: id_tempo
+        description: "Chave estrangeira para dimensão tempo"
+        tests:
+          - relationships:
+              to: ref('dim_tempo')
+              field: id_tempo

@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_investors
+    description: "View de limpeza dos dados brutos de investidores"
+    columns:
+      - name: investor_id
+        description: "Identificador único do investidor"
+        tests:
+          - not_null
+          - unique
+      - name: perfil
+        description: "Perfil do investidor"
+        tests:
+          - not_null
+
+  - name: stg_market_ticks
+    description: "View de limpeza dos dados de mercado"
+    columns:
+      - name: date
+        description: "Data da observação"
+        tests:
+          - not_null
+      - name: ticker
+        description: "Código do ativo"
+        tests:
+          - not_null
