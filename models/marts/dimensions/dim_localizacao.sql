@@ -1,4 +1,9 @@
 -- models/marts/dimensions/dim_localizacao.sql
+
+{{ config(
+    materialized='table'
+) }}
+
 select distinct
     investor_id as id_localizacao,
     estado_civil as pais, -- ajustar conforme origem real

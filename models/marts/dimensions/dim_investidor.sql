@@ -1,4 +1,9 @@
 -- models/marts/dimensions/dim_investidor.sql
+
+{{ config(
+    materialized='table'
+) }}
+
 select
     investor_id as id_investidor,
     profissao as nome,

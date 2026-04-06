@@ -1,4 +1,9 @@
 -- models/marts/dimensions/dim_carteira.sql
+
+{{ config(
+    materialized='table'
+) }}
+
 select
     investor_id as id_carteira,
     tipo_invest as nome_estrategia,

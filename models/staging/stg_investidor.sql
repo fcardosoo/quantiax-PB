@@ -1,4 +1,9 @@
 -- models/staging/stg_investors.sql
+
+{{ config(
+    materialized='view'
+) }}
+
 select
     investor_id,
     idade,

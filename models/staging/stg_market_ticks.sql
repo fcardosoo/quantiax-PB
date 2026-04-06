@@ -1,4 +1,9 @@
 -- models/staging/stg_market_ticks.sql
+
+{{ config(
+    materialized='view'
+) }}
+
 select
     date::date as data,
     open::numeric as preco_abertura,

@@ -1,4 +1,9 @@
 -- models/marts/dimensions/dim_tempo.sql
+
+{{ config(
+    materialized='table'
+) }}
+
 select distinct
     row_number() over(order by data) as id_tempo,
     data,
