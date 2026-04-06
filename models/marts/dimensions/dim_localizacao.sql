@@ -5,4 +5,4 @@ select distinct
     null as estado,
     null as cidade,
     null as regiao
-from {{ ref('stg_investors') }}
+from {{ ref('stg_investidor') }}

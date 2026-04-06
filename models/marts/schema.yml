@@ -26,11 +26,13 @@ models:
         description: "Chave estrangeira para dimensão investidor"
         tests:
           - relationships:
-              to: ref('dim_investidor')
-              field: id_investidor
+              arguments:
+                to: ref('dim_investidor')
+                field: id_investidor
       - name: id_tempo
         description: "Chave estrangeira para dimensão tempo"
         tests:
           - relationships:
-              to: ref('dim_tempo')
-              field: id_tempo
+              arguments:
+                to: ref('dim_tempo')
+                field: id_tempo

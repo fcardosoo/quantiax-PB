@@ -4,4 +4,4 @@ select
     tipo_invest as nome_estrategia,
     objetivo_principal as descricao,
     horizonte as objetivo
-from {{ ref('stg_investors') }}
+from {{ ref('stg_investidor') }}

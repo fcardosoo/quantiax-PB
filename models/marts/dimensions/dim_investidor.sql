@@ -5,4 +5,4 @@ select
     perfil as tipo,
     preferencia_risco as perfil_risco,
     investor_id as id_localizacao
-from {{ ref('stg_investors') }}
+from {{ ref('stg_investidor') }}
