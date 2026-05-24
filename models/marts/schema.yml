@@ -3,6 +3,7 @@ version: 2
 models:
   - name: dim_investidor
     description: "Dimensão de investidores"
+
     columns:
       - name: id_investidor
         description: "Chave primária da dimensão investidor"
@@ -10,8 +11,29 @@ models:
           - unique
           - not_null
 
+      - name: perfil_risco
+        description: "Perfil de risco do investidor"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - Conservador
+                - Moderado
+                - Agressivo
+
+      - name: faixa_etaria
+        description: "Faixa etária do investidor"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - Jovem
+                - Adulto
+                - Idoso
+
   - name: dim_tempo
     description: "Dimensão de tempo"
+
     columns:
       - name: id_tempo
         description: "Chave primária da dimensão tempo"
@@ -19,8 +41,24 @@ models:
           - unique
           - not_null
 
+      - name: ano
+        description: "Ano de referência"
+        tests:
+          - not_null
+
+      - name: trimestre
+        description: "Trimestre do ano"
+        tests:
+          - accepted_values:
+              values:
+                - 1
+                - 2
+                - 3
+                - 4
+
   - name: fct_desempenho_carteira
     description: "Tabela fato de desempenho das carteiras"
+
     columns:
       - name: id_investidor
         description: "Chave estrangeira para dimensão investidor"
@@ -29,6 +67,7 @@ models:
               arguments:
                 to: ref('dim_investidor')
                 field: id_investidor
+
       - name: id_tempo
         description: "Chave estrangeira para dimensão tempo"
         tests:
@@ -36,3 +75,8 @@ models:
               arguments:
                 to: ref('dim_tempo')
                 field: id_tempo
+
+      - name: retorno_percentual
+        description: "Percentual de retorno da carteira"
+        tests:
+          - not_null
